@@ -1,0 +1,390 @@
+@import 'lib/vars';
+@import 'lib/mixins';
+@import 'lib/reboot';
+@import 'lib/fontawesome/font-awesome';
+@import 'lib/fontface';
+@import 'lib/keyframes';
+@import 'partials/modal';
+
+
+
+// * {
+//   border: 1px solid pink;
+// }
+
+// .container {
+//   display: grid;
+//   width: 100%;
+//   min-height: 100vh;
+//   grid-template-columns: 300px 1fr;
+// }
+
+// .sidebar {
+//   grid-area: 1 / 1 / span 1 / span 1;
+//   background-color: #eee;
+//   padding: 2rem;
+//   position: fixed;
+//   width: 300px;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   overflow: auto;
+// }
+
+// .content {
+//   grid-area: 1 / 2 / span 1 / span 1;
+//   padding: 2rem;
+// }
+
+// .content * {
+//   max-width: 70ch;
+// }
+
+// .colors {
+//   display: grid;
+//   grid-template-columns: repeat(6, 1fr);
+//   grid-gap: 1rem;
+//   margin: 2rem 0;
+//   page-break-inside: avoid;
+// }
+
+// .color {
+//   height: 200px;
+//   background-color: #eee;
+// }
+
+// .footnote {
+//   footnote-style-position: inside;
+// }
+
+// .slab {
+//   background-color: #eee;
+//   padding: 1rem;
+//   margin: 1rem 0;
+// }
+
+// .floating {
+//   float: right;
+//   clear: both;
+// }
+
+// @media print {
+//   @page {
+//     size: A4 landscape;
+//   }
+
+//   body {
+//     font-size: 11pt;
+//     line-height: 1.4;
+//   }
+
+//   * {
+//     border: 1px solid blue;
+//   }
+
+//   .content {
+//     grid-area: 1 / 1 / span 1 / span 2;
+//     padding: 0;
+//   }
+
+//   .sidebar {
+//     display: none;
+//   }
+// }
+
+//DISPLAY
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 15rem 40rem 15rem;
+  grid-template-rows: 70px auto 50px;
+
+  .header {
+
+    grid-column: 1/span 1;
+    grid-row: 1/span 1;
+  }
+
+  .main_navigation {
+    grid-column: 1/span 1;
+    grid-row: 2/ span 1;
+  }
+
+  .user {
+    grid-column: 1/span 1;
+    grid-row: 3/ span 1;
+  }
+
+  .main {
+    grid-column: 2/span 1;
+    grid-row: 1/ span 3;
+  }
+
+  .aside_trends {
+    grid-column: 3/span 1;
+    grid-row: 1/ span 1;
+  }
+}
+
+html,
+body {
+  background-color: #0f2736;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  background-color: #0f2736;
+  color: white;
+  height: 100vh;
+
+  .header {
+
+    span {
+      font-size: 2rem;
+      padding: .8rem 0;
+    }
+  }
+
+  .main_navigation {
+
+    .main_menu {
+
+
+      .menu_item {
+        padding: .8rem 0;
+        font-size: 1.3rem;
+        font-weight: bold;
+
+        .fa {
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      outline: 0;
+
+    }
+  }
+
+  .my_user {
+    
+  }
+
+  .main {
+    border-left: solid .2px #aaa;
+    border-right: solid .2px #aaa;
+
+    .main_title {
+      h1 {
+        padding: .8rem 1.3rem;
+
+        border-bottom: 1px solid #aaa;
+        font-size: 1.5rem;
+      }
+    }
+
+    .tweet_line {
+      margin: 0;
+
+      form {
+        border-bottom: 1px solid #aaa;
+        display: grid;
+        grid-template-columns: 50px auto 100px;
+        grid-template-rows: 3rem 3rem 3rem;
+        margin-top: -1rem;
+        padding: 1rem;
+
+        img {
+          background-color: #2b3d47;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+        }
+
+        textarea {
+          width: 100%;
+          background-color: #0f2736;
+          grid-column: 2/span 1;
+          grid-row: 1/span 3;
+          border: none;
+          resize: none;
+          padding: .5rem 1rem;
+          font-size: 1.2rem;
+          color: #aaa;
+          outline: 0;
+
+        }
+
+        button {
+          grid-column: 3/span 1;
+          grid-row: 3/span 1;
+          height: 80%;
+          padding: 0;
+          align-self: flex-end;
+          outline: 0;
+
+        }
+      }
+
+      .tweet_feed .tweet {
+        border-bottom: 1px solid #aaa;
+        display: grid;
+        padding: 1rem;
+        grid-template-columns: 70px auto;
+        grid-template-rows: auto auto auto;
+
+        .user_pic {
+          grid-column: 1/span 1;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
+
+        }
+
+        .user {
+          display: flex;
+          grid-row: 1/span 1;
+          grid-column: 2/span 1;
+          align-items: center;
+          margin-top: -1.3rem;
+
+
+          .name {
+            padding-right: .5rem;
+            font-weight: bold;
+          }
+
+          .username {
+            padding-right: 0.5rem;
+            color: #aaa;
+          }
+
+          span {
+            font-size: .2rem;
+            padding-right: .5rem;
+            margin-bottom: -.1rem;
+            color: #aaa;
+
+          }
+
+          .time {
+            color: #aaa;
+
+          }
+
+          .fa-trash {
+            font-size: 1rem;
+            margin-left: .6rem;
+          }
+        }
+
+        .tweet_text {
+          grid-row: 2/span 1;
+          grid-column: 2/span 1;
+          margin-top: -1rem;
+          font-size: 1rem;
+          line-height: 1.1rem;
+
+        }
+
+        .interactions {
+          grid-row: 3/span 1;
+          grid-column: 2/span 1;
+          display: flex;
+          margin-top: 1rem;
+          color: #aaa;
+
+          .comment {
+
+            .fa {
+              padding-right: 0.1rem;
+            }
+
+            .number_of_comments {
+              padding-right: 0.7rem;
+            }
+          }
+
+          .retweet {
+
+            .fa {
+              padding-right: 0.1rem;
+
+              -webkit-text-stroke: 1.2px #0f2736;
+            }
+
+            .number_of_retweets {
+              padding-right: 0.8rem;
+            }
+          }
+
+          .likes {
+
+            .fa {
+              padding-right: 0.1rem;
+            }
+
+            .number_of_likes {
+              padding-right: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .aside_trends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+
+    .amount {
+
+      color: rgb(37, 186, 245);
+      font-weight: bold;
+      margin: .5rem 0 1.8rem 0;
+    }
+
+    .reset {
+      background-color: #173242;
+      color: white;
+      border-radius: 30px;
+      padding: .7rem 2.5rem;
+      font-weight: bold;
+      font-size: .9rem;
+    }
+
+    :hover {
+      background-color: #1a3b4f;
+
+    }
+  }
+}
+
+
+
+button {
+  background-color: rgb(37, 186, 245);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: .7rem 2.7rem .8rem 2.7rem;
+  font-weight: bold;
+  font-size: .9rem;
+
+
+}
